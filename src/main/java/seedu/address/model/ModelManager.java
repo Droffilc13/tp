@@ -218,7 +218,7 @@ public class ModelManager implements Model {
                 && filteredPersons.equals(other.filteredPersons);
     }
 
-    //=========== Filtered Assignment List Accessors =============================================================
+    //=========== Assignment List Accessors =============================================================
 
     /**
      * Returns an unmodifiable view of the list of {@code Assignment} backed by the internal list of
@@ -260,10 +260,12 @@ public class ModelManager implements Model {
 
     //=========== Active Person =========================================================================
 
+    @Override
     public Person getActivePerson() {
         return versionedAddressBook.getActivePerson();
     }
 
+    @Override
     public boolean hasActivePerson() {
         return versionedAddressBook.hasActivePerson();
     }
