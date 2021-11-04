@@ -257,12 +257,36 @@ The `activePerson` field is a reference to a `Person`object within `UniquePerson
 
 The `ModelManager` has a reference to the `VersionedAddressBook` which is a subclass of `AddressBook` and has the following accessors to `activePerson`:
 * `Model#hasActivePerson()` —  Checks the presence of active person.
-* `Model#getActivePerson()` —  Retrieves the active person if it exists.
+* `Model#getActivePerson()` —  Retrieves the active person if it exists to perform operations on the person's assignment list.
 
-Operations that affect the person whose assignments are displayed will use the above accessors before calling
+Operations that may change the person whose assignments are displayed will use the above accessors before calling `Model#updateAssignmentList(Person person)` to change the target of `activePerson` to the `person` parameter, wrapped in an `Optional` if it exists in `UniquePersonList`. If not, `activePerson` will be updated to an empty `Optional` that means an absence of `activePerson`.
 
+The `delete` command is one of the commands that may affect the assignment list displayed. Since `Person` objects and their `Assignments` share a whole-part relationship, when a `Person` object is deleted, their list of `Assignment` should be deleted as well. Hence, if a particular `Person` object is the `activePerson`, the `UniqueAssignmentList` in `AddressBook` should be cleared of `Assignment` objects belonging to that `Person` if he/she is deleted. Below is an activity diagram to illustrate this point.
 
-#### Design considerations:
+![Update Assignment List Activity Diagram](images/UpdateAssignmentListActivityDiagram.png)
+
+**Aspect: How undo & redo executes:**
+
+* **Alternative 1 (current choice):** Saves the entire address book.
+  * Pros: Easy to implement.
+  * Cons: May have performance issues in terms of memory usage.
+
+* **Alternative 2:** Individual command knows how to undo/redo by
+  itself.
+  * Pros: Will use less memory (e.g. for `delete`, just save the person being deleted).
+  * Cons: We must ensure that the implementation of each individual command are correct.
+
+#### Design considerations
+
+**Aspect: How undo & redo executes:**
+
+* **Alternative 1 (current choice): use a reference to point to `person` whose assignments should be displayed** 
+  * Pros: Easy to implement.
+  * Cons: Ignoring the property of `UniqueAssignmentList` that prevents duplicate `Assignment` from being stored, this method will be limited to displaying a particular person's assignments. Difficult to extend to displaying `Assignment` objects of multiple `Person` objects.
+
+* **Alternative 2:** `Person` class store an additional attribute `boolean isActivePerson`.
+  * Pros: Can toggle between multiple persons.
+  * Cons: `isActivePerson` may not be a suitable property of `Person` class since it may not be the responsibility of `Person` to remember whether it is the `activePerson`.
 
 ### Undo/redo feature
 
