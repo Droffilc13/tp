@@ -246,6 +246,13 @@ A `UniqueAssignmentList` stores a list of `Assignment` and prevents duplicates. 
     * Pros: Divides cleanly all the different types of status and intended behaviour and make it very easy to add new status with few adjustments by creating another subclass.
     * Cons: The code length is very long due to all the subclasses of status and may not be optimal for Status class with very few status types.
 
+### Keeping track on person whose assignments are displayed feature
+
+#### Implementation
+
+The `activePerson` field within `AddressBook`
+
+#### Design considerations:
 
 ### Undo/redo feature
 
