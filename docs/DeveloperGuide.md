@@ -255,9 +255,12 @@ The `activePerson` field is a reference to a `Person`object within `UniquePerson
 
 `activePerson` field is wrapped in an `Optional` because there is a possibility that there are no `activePerson` which means that there are no `Person` objects whose assignment list is currently stored in the `UniqueAssignmentList`.
 
-The `ModelManager` stores the `VersionedAddressBook` which is a subclass of `AddressBook` and has the following accessors to `activePerson`:
-* `Model#()` — Saves the current address book state in its history.
-* `VersionedAddressBook#undo()` — Restores the previous address book state from its history.
+The `ModelManager` has a reference to the `VersionedAddressBook` which is a subclass of `AddressBook` and has the following accessors to `activePerson`:
+* `Model#hasActivePerson()` —  Checks the presence of active person.
+* `Model#getActivePerson()` —  Retrieves the active person if it exists.
+
+Operations that affect the person whose assignments are displayed will use the above accessors before calling
+
 
 #### Design considerations:
 
