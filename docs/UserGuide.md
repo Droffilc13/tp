@@ -2,11 +2,17 @@
 layout: page
 title: User Guide
 ---
+## **Welcome to TA<sup>2</sup>'s User Guide!**
+{:.no_toc}
 
-Teaching Assistant's Assistant (TA<sup>2</sup>) is a **desktop app designed for teaching assistants/tutors/professors
-from the School of Computing to help manage student contacts and keep track of students' assignment submissions. TA<sup>2</sup> is
-optimized for use via a Command Line Interface** (CLI) while still having the benefits of a Graphical User Interface (GUI).
-If you can type fast, TA<sup>2</sup> can get your contact and assignment management tasks done faster than traditional GUI apps.
+Teaching Assistant's Assistant (TA<sup>2</sup>) is a desktop app that offers a convenient way for teaching assistants
+from the School of Computing to manage student contacts and keep track of students' assignment submissions. 
+
+TA<sup>2</sup> is optimized for use via a **Command Line Interface (CLI)** while still having the benefits of a Graphical User Interface (GUI). If you can type fast, TA<sup>2</sup> can get your contact and assignment management tasks done faster than traditional GUI apps!
+
+This user guide provides you with installation instructions, a comprehensive guide and summary on features of TA<sup>2</sup> and troubleshooting recommendations. Check out the [Quick start](#Quick-start) section to help you get started with TA<sup>2</sup> today!
+
+--------------------------------------------------------------------------------------------------------------------
 
 * Table of Contents
 {:toc}
@@ -19,33 +25,34 @@ If you can type fast, TA<sup>2</sup> can get your contact and assignment managem
 
 2. Download the latest `ta2.jar` release from [here](https://github.com/AY2122S1-CS2103T-T13-2/tp/releases/tag/v1.4).
 
-3. Copy the file to the folder you want to use as the _home folder_ for your TA<sup>2</sup>.
+3. Copy the file to the folder you want to use as the _home folder_ for TA<sup>2</sup>.
 
 4. Double-click the file to start the app. The window similar to the one shown below should appear in a few seconds.
    Note how the app contains some sample data.<br>
    ![Ui](images/userguide/ta^2_ui.png)
 
-5. You can try some commands by typing them in the command input box and press Enter to execute it.
+5. You can warm up with some commands by typing them in the command input box and pressing Enter to execute it.
 
    Some example commands you can try:
 
-   * **`list`**: Lists all contacts.
+    * **`list`**: Lists all of your contacts.
 
-   * **`add`**`n/John Doe m/CS2100 e/e1234567@u.nus.edu`: Adds a student named `John Doe` with his/her relevant information into the contact list.
+    * **`add`**`n/John Doe m/CS2100 e/e1234567@u.nus.edu`: Adds a student named `John Doe` into your contact list.
 
-   * **`giveall`**`d/Assignment 1 m/CS2100 by/31/12/2021`: Adds an assignment call  `Assignment 1`, with deadline 2021, Dec 31,
-     to the assignment list of all students in the contact list who are under the module `CS2100`.
+    * **`show`**`1`: Displays the assignments of the first student in your assignment list.
 
-6. Once you finished, and you don't want to keep these sample data. Try `clear` command to offer you a tidy and clean window, 
-   and the journey of using TA<sup>2</sup> officially starts!
+    * **`give`**`d/Assignment 1 m/CS2100 by/today`: Gives an assignment, `Assignment 1`, to the first student in your contact list.
 
-   * **`clear`**: Deletes all contacts.
+6. If you wish to start managing your students with TA<sup>2</sup>, use the `clear` command to remove all the sample data.
+
+    * **`clear`**: Deletes all contacts.
 
 7. Refer to the [Features](#features) below for details of each command.
 
 --------------------------------------------------------------------------------------------------------------------
 
-## UI Mockup
+## UI Design
+
 ![UiExplanation](images/userguide/explainingUI.png)
 
  * Command Input Box: The box to type in your commands.
