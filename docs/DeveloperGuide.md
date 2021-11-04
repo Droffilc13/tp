@@ -218,6 +218,8 @@ The assignment list of the specified person is stored in `AddressBook` rather th
 
 ### Assignment Feature
 
+#### Implementation
+
 The `Assignment` class encapsulates the current Assignment feature and composes of `Description`, `Status` and `DueDate` class.
 
 It implements the operation `Assignment#isSameAssignment(Assignment assignment)` to check for duplicate assignments. Currently, assignments are similar if they have the same description and this check is case-insensitive. This is because each student is under one module and having a similarly named assignment within the same module is less likely.
@@ -247,17 +249,21 @@ A `UniqueAssignmentList` stores a list of `Assignment` and prevents duplicates. 
 
 ### Keeping track on person whose assignments are displayed feature
 
+#### Implementation
+
 The `activePerson` field is a reference to a `Person`object within `UniquePersonList`, wrapped in an `Optional`, whose `Assignment` objects are stored in `UniqueAssignmentList` within `AddressBook`. It forms the bedrock of many commands that involves `Assignment` in `UniqueAssignmentList`.
 
-`activePerson` field is wrapped in an `Optional` because there can be no `activePerson` which means that there are no `Person` objects whose assignment list is currently stored in the `UniqueAssignmentList`.
+`activePerson` field is wrapped in an `Optional` because there is a possibility that there are no `activePerson` which means that there are no `Person` objects whose assignment list is currently stored in the `UniqueAssignmentList`.
 
 The `ModelManager` stores the `VersionedAddressBook` which is a subclass of `AddressBook` and has the following accessors to `activePerson`:
-* `ModelManagerk()` — Saves the current address book state in its history.
+* `Model#()` — Saves the current address book state in its history.
 * `VersionedAddressBook#undo()` — Restores the previous address book state from its history.
 
 #### Design considerations:
 
 ### Undo/redo feature
+
+#### Implementation
 
 The undo/redo mechanism is facilitated by `VersionedAddressBook`. It extends `AddressBook` with an undo/redo history, stored internally as an `addressBookStateList` and `currentStatePointer`. Additionally, it implements the following operations:
 

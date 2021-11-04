@@ -102,8 +102,19 @@ public interface Model {
      */
     void updateFilteredPersonList(Predicate<Person> predicate);
 
+    /**
+     * Returns true if there is an active person in the address book and false otherwise.
+     *
+     * @return true if there is an active person in the address book, and false otherwise.
+     */
     boolean hasActivePerson();
 
+    /**
+     * Returns the current active person. Assumes that active person presence has been verified since
+     * this method is not applicable if there are no active person.
+     *
+     * @return true if there is an active person in the address book, and false otherwise.
+     */
     Person getActivePerson();
 
     boolean hasAssignment(Person person, Assignment toAdd);

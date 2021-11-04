@@ -251,7 +251,6 @@ public class ModelManager implements Model {
 
     /**
      * Clears the assignments from the assignment list in the {@code versionedAddressBook}.
-     *
      */
     @Override
     public void clearAssignmentList() {
