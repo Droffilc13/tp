@@ -50,7 +50,6 @@ Given below are my contributions to the project.
       * `Assignment`feature (use: class diagram)
       *  Updating and tracking of person whose assignment list is displayed feature (use: activity diagram)
     * Updated Model and Ui architecture diagram and explanation
-    * Improve value proposition to include the product unique points.
     * List out non functional requirements.
     * Added Manual test case for `add`, `delete`, `exit`, `list`, `clear`
 
