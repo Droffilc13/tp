@@ -2,102 +2,61 @@
 layout: page
 title: User Guide
 ---
-## **Welcome to TA<sup>2</sup>'s User Guide!**
-{:.no_toc}
 
-Teaching Assistant's Assistant (TA<sup>2</sup>) is a desktop app that offers a convenient way for teaching assistants
-from the School of Computing to manage student contacts and keep track of students' assignment submissions. 
-
-TA<sup>2</sup> is optimized for use via a **Command Line Interface (CLI)** while still having the benefits of a Graphical User Interface (GUI). If you can type fast, TA<sup>2</sup> can get your contact and assignment management tasks done faster than traditional GUI apps!
-
-This user guide provides you with installation instructions, a comprehensive guide and summary on features of TA<sup>2</sup> and troubleshooting recommendations. Check out the [Quick start](#Quick-start) section to help you get started with TA<sup>2</sup> today!
-
---------------------------------------------------------------------------------------------------------------------
+Teaching Assistant's Assistant (TA<sup>2</sup>) is a **desktop app designed for teaching assistants/tutors/professors
+from the School of Computing to help manage student contacts and keep track of students' assignment submissions. TA<sup>2</sup> is  
+optimized for use via a Command Line Interface** (CLI) while still having the benefits of a Graphical User Interface (GUI).
+If you can type fast, TA<sup>2</sup> can get your contact and assignment management tasks done faster than traditional GUI apps.
 
 * Table of Contents
-{:toc}
+  {:toc}
 
 --------------------------------------------------------------------------------------------------------------------
 
 ## Quick start
 
-1. Ensure you have `Java 11` or later installed in your Computer.
+1. Ensure you have Java `11` or above installed in your Computer.
 
-2. Download the latest `ta2.jar` release from [here](https://github.com/AY2122S1-CS2103T-T13-2/tp/releases/tag/v1.4).
+1. Download the latest `ta2.jar` from [here](https://github.com/AY2122S1-CS2103T-T13-2/tp/releases/tag/v1.4).
 
-3. Copy the file to the folder you want to use as the _home folder_ for TA<sup>2</sup>.
+1. Copy the file to the folder you want to use as the _home folder_ for your TA<sup>2</sup>.
 
-4. Double-click the file to start the app. The window similar to the one shown below should appear in a few seconds.
-   Note how the app contains some sample data.<br>
+1. Double-click the file to start the app. The GUI similar to the one shown below should appear in a few seconds. Note how the app contains some sample data.<br>
    ![Ui](images/userguide/ta^2_ui.png)
 
-5. You can warm up with some commands by typing them in the command input box and pressing Enter to execute it.
-
+1. Type the command in the command box and press Enter to execute it. e.g. typing **`help`** and pressing Enter will open the help window.<br>
    Some example commands you can try:
 
-    * **`list`**: Lists all of your contacts.
+    * **`list`** : Lists all contacts.
 
-    * **`add`**`n/John Doe m/CS2100 e/e1234567@u.nus.edu`: Adds a student named `John Doe` into your contact list.
+    * **`add`**`n/John Doe m/CS2100 e/e1234567@u.nus.edu` : Adds a contact named `John Doe` with his/her relevant information to TA<sup>2</sup>.
 
-    * **`show`**`1`: Displays the assignments of the first student in your assignment list.
+    * **`delete`**`3` : Deletes the 3rd contact shown in the current displayed contact list.
 
-    * **`give`**`d/Assignment 1 m/CS2100 by/today`: Gives an assignment, `Assignment 1`, to the first student in your contact list.
+    * **`clear`** : Deletes all contacts.
 
-6. If you wish to start managing your students with TA<sup>2</sup>, use the `clear` command to remove all the sample data.
+    * **`exit`** : Exits the app.
 
-    * **`clear`**: Deletes all contacts.
-
-7. Refer to the [Features](#features) below for details of each command.
+1. Refer to the [Features](#features) below for details of each command.
 
 --------------------------------------------------------------------------------------------------------------------
 
-## UI Design
+## UI Mockup
 
 ![UiExplanation](images/userguide/explainingUI.png)
 
- * Command Input Box: The box to type in your commands.
+* Command Input Box: The box to type in your commands.
 
- * Result Message Box: Displays a success message if your command has been executed, or an error message if your command
-   has failed.
+* Result Message Box: Displays a success message if your command has been executed, or an error message if your command
+  has failed.
 
- * Contact List: Displays your student's relevant information. (Can be modified using `find`)
+* Contact List: Displays your student's relevant information. (Can be modified using `find`)
 
- * Assignment List: Displays a specified student's assignments. (Activated using `show`)
+* Assignment List: Displays a specified student's assignments. (Activated using `show`)
 
---------------------------------------------------------------------------------------------------------------------
+### Viewing help : `help`
 
-## Features
-
-<div markdown="block" class="alert alert-info">
-
-**:information_source: Notes about the command format:**<br>
-
-* Words in `UPPER_CASE` are the parameters to be supplied by the user.<br>
-  e.g. in `add n/NAME`, `NAME` is a parameter which can be used as `add n/John Doe`.
-
-* Items in square brackets are optional.<br>
-  e.g. `n/NAME [t/TAG]` can be used as `n/John Doe t/friends` or as `n/John Doe`.
-
-* Items with `…`​ after them can be used multiple times including zero times.<br>
-  e.g. `[t/TAG]…​` can be used as ` ` (i.e. 0 times), `t/friends`, `t/Leader t/friends` etc.
-
-* Parameters can be in any order.<br>
-  e.g. if the command specifies `n/NAME e/EMAIL`, `e/EMAIL n/NAME` is also acceptable.
-
-* If a command requires `INDEX` as an input, only one input for `INDEX` is expected. `INDEX` **must** be more than 0 and less than 10,000.<br>
-
-* If a parameter is expected only once in the command, but you specify it multiple times, only the last occurrence of the parameter will be taken.<br>
-  e.g. if you specify `m/cs2103 m/cs2101`, only `m/cs2101` will be taken.
-
-* Extraneous parameters for commands that do not take in parameters (such as `help`, `list`, `exit` and `clear`) will be ignored.<br>
-  e.g. if the command specifies `help 123`, it will be interpreted as `help`.
-
-</div>
-
-### Viewing help: `help`
-
-Shows a help window with a link directing you to the user guide. Alternatively this can be access by clicking the `Help` button
-that can be found in the top left corner.
+Shows a message explaining how to access the help page.
 
 ![help message](images/helpMessage.png)
 
